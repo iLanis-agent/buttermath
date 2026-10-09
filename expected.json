@@ -1,0 +1,528 @@
+[
+ {
+  "card": "creamToButter",
+  "args": [
+   250
+  ],
+  "expect": {
+   "butter_g": 113,
+   "buttermilk_g": 137,
+   "verdict": "a small jar batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   500
+  ],
+  "expect": {
+   "butter_g": 225,
+   "buttermilk_g": 275,
+   "verdict": "a kitchen batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   1000
+  ],
+  "expect": {
+   "butter_g": 450,
+   "buttermilk_g": 550,
+   "verdict": "a churn day"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   300
+  ],
+  "expect": {
+   "butter_g": 135,
+   "buttermilk_g": 165,
+   "verdict": "a kitchen batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   999
+  ],
+  "expect": {
+   "butter_g": 450,
+   "buttermilk_g": 549,
+   "verdict": "a kitchen batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   2000
+  ],
+  "expect": {
+   "butter_g": 900,
+   "buttermilk_g": 1100,
+   "verdict": "a churn day"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   150
+  ],
+  "expect": {
+   "butter_g": 68,
+   "buttermilk_g": 82,
+   "verdict": "a small jar batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   750
+  ],
+  "expect": {
+   "butter_g": 338,
+   "buttermilk_g": 412,
+   "verdict": "a kitchen batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   4500
+  ],
+  "expect": {
+   "butter_g": 2025,
+   "buttermilk_g": 2475,
+   "verdict": "a churn day"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   111
+  ],
+  "expect": {
+   "butter_g": 50,
+   "buttermilk_g": 61,
+   "verdict": "a small jar batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   833
+  ],
+  "expect": {
+   "butter_g": 375,
+   "buttermilk_g": 458,
+   "verdict": "a kitchen batch"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   3000
+  ],
+  "expect": {
+   "butter_g": 1350,
+   "buttermilk_g": 1650,
+   "verdict": "a churn day"
+  }
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   0
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   -500
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   2.5
+  ],
+  "error": "whole grams"
+ },
+ {
+  "card": "creamToButter",
+  "args": [
+   12000
+  ],
+  "error": "under 10 kg"
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   500,
+   "jar"
+  ],
+  "expect": {
+   "minutes": 20.0,
+   "verdict": "an arm workout"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   1000,
+   "jar"
+  ],
+  "expect": {
+   "minutes": 40.0,
+   "verdict": "call it a project"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   250,
+   "jar"
+  ],
+  "expect": {
+   "minutes": 10.0,
+   "verdict": "an arm workout"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   3000,
+   "jar"
+  ],
+  "expect": {
+   "minutes": 120.0,
+   "verdict": "call it a project"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   500,
+   "hand"
+  ],
+  "expect": {
+   "minutes": 10.0,
+   "verdict": "an arm workout"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   1200,
+   "hand"
+  ],
+  "expect": {
+   "minutes": 24.0,
+   "verdict": "an arm workout"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   500,
+   "stand"
+  ],
+  "expect": {
+   "minutes": 6.0,
+   "verdict": "a quick churn"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   2000,
+   "stand"
+  ],
+  "expect": {
+   "minutes": 24.0,
+   "verdict": "an arm workout"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   500,
+   "processor"
+  ],
+  "expect": {
+   "minutes": 4.0,
+   "verdict": "a quick churn"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   900,
+   "processor"
+  ],
+  "expect": {
+   "minutes": 7.2,
+   "verdict": "a quick churn"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   150,
+   "hand"
+  ],
+  "expect": {
+   "minutes": 3.0,
+   "verdict": "a quick churn"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   4500,
+   "jar"
+  ],
+  "expect": {
+   "minutes": 180.0,
+   "verdict": "call it a project"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   750,
+   "stand"
+  ],
+  "expect": {
+   "minutes": 9.0,
+   "verdict": "a quick churn"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   2000,
+   "hand"
+  ],
+  "expect": {
+   "minutes": 40.0,
+   "verdict": "call it a project"
+  }
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   0,
+   "jar"
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   500,
+   "blender"
+  ],
+  "error": "method is"
+ },
+ {
+  "card": "churnTime",
+  "args": [
+   2.5,
+   "jar"
+  ],
+  "error": "whole grams"
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   225,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 3.4,
+   "rinses": 3,
+   "rinse_water_ml": 675,
+   "verdict": "a modest pinch"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   450,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 6.8,
+   "rinses": 3,
+   "rinse_water_ml": 1350,
+   "verdict": "a modest pinch"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   225,
+   "unsalted"
+  ],
+  "expect": {
+   "salt_g": 0,
+   "rinses": 3,
+   "rinse_water_ml": 675,
+   "verdict": "no salt to weigh"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   100,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 1.5,
+   "rinses": 3,
+   "rinse_water_ml": 300,
+   "verdict": "a pinch"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   130,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 2.0,
+   "rinses": 3,
+   "rinse_water_ml": 390,
+   "verdict": "a modest pinch"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   133,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 2.0,
+   "rinses": 3,
+   "rinse_water_ml": 399,
+   "verdict": "a modest pinch"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   660,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 9.9,
+   "rinses": 3,
+   "rinse_water_ml": 1980,
+   "verdict": "a modest pinch"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   667,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 10.0,
+   "rinses": 3,
+   "rinse_water_ml": 2001,
+   "verdict": "weigh it carefully"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   2000,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 30.0,
+   "rinses": 3,
+   "rinse_water_ml": 6000,
+   "verdict": "weigh it carefully"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   50,
+   "unsalted"
+  ],
+  "expect": {
+   "salt_g": 0,
+   "rinses": 3,
+   "rinse_water_ml": 150,
+   "verdict": "no salt to weigh"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   1350,
+   "salted"
+  ],
+  "expect": {
+   "salt_g": 20.3,
+   "rinses": 3,
+   "rinse_water_ml": 4050,
+   "verdict": "weigh it carefully"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   900,
+   "unsalted"
+  ],
+  "expect": {
+   "salt_g": 0,
+   "rinses": 3,
+   "rinse_water_ml": 2700,
+   "verdict": "no salt to weigh"
+  }
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   0,
+   "salted"
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   225,
+   "sweet"
+  ],
+  "error": "style is"
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   2.5,
+   "salted"
+  ],
+  "error": "whole grams"
+ },
+ {
+  "card": "saltAndWash",
+  "args": [
+   6000,
+   "salted"
+  ],
+  "error": "under 5 kg"
+ }
+]
