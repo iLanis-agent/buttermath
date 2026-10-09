@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Butter math - cream to butter, churn time, salt and wash</title>
+<style>
+  :root { --ink:#2b2108; --accent:#b8860b; --paper:#fdf8ec; --card:#ffffff; --line:#ecdcb0; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); }
+  header { padding:2rem 1.25rem 1rem; max-width:960px; margin:0 auto; }
+  h1 { font-size:1.9rem; margin:0 0 .35rem; }
+  header p { margin:.25rem 0; color:#5d4c22; max-width:46rem; line-height:1.45; }
+  .norms { font-size:.9rem; color:#6b5926; margin-top:.6rem; }
+  main { max-width:960px; margin:0 auto; padding:0 1.25rem 3rem; display:grid; gap:1.25rem; }
+  @media (min-width:820px){ main { grid-template-columns:1fr 1fr 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:1.1rem 1.1rem 1.25rem; }
+  .card h2 { font-size:1.15rem; margin:.1rem 0 .5rem; }
+  .card p.desc { font-size:.9rem; color:#6b5926; margin:.2rem 0 .8rem; line-height:1.4; }
+  label { display:block; font-size:.85rem; margin:.55rem 0 .15rem; color:#4d3f1c; }
+  input, select { width:100%; padding:.45rem .5rem; font-size:1rem; border:1px solid var(--line); border-radius:6px; font-family:inherit; background:#fff; }
+  button { margin-top:.8rem; width:100%; padding:.55rem; font-size:1rem; font-family:inherit; background:var(--accent); color:#fff; border:0; border-radius:6px; cursor:pointer; }
+  button:hover { background:#966e08; }
+  .out { margin-top:.9rem; font-size:.95rem; line-height:1.5; min-height:3.2rem; }
+  .out .big { font-size:1.35rem; font-weight:bold; }
+  .band { display:inline-block; margin-top:.35rem; padding:.15rem .55rem; border-radius:999px; background:#f7e9c3; color:#7c5d06; font-size:.82rem; }
+  .err { color:#a02323; }
+  footer { max-width:960px; margin:0 auto; padding:0 1.25rem 2.5rem; font-size:.85rem; color:#84702f; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Butter math</h1>
+  <p>Shake a carton of cream long enough and it splits into butter and buttermilk. How much of each, how long the churn takes, and what the finished block wants in salt and rinse water - exact arithmetic, every borrowed number labeled.</p>
+  <p class="norms">Labeled norms: butter yield 45% of cream weight; churn minutes per 500 g - jar 20, hand mixer 10, stand mixer 6, processor 4; salted butter 1.5% salt; 3 rinse rounds, 1 mL cold water per g of butter per round.</p>
+</header>
+<main>
+  <section class="card" id="split">
+    <h2>Cream to butter</h2>
+    <p class="desc">A carton of cream becomes butter and buttermilk at the labeled yield.</p>
+    <label for="c-g">Cream (g)</label>
+    <input id="c-g" type="number" step="1" min="1" value="500">
+    <button id="c-go">Split the carton</button>
+    <div class="out" id="c-out"></div>
+  </section>
+
+  <section class="card" id="churn">
+    <h2>Churn time</h2>
+    <p class="desc">Method and cream weight become honest minutes.</p>
+    <label for="t-g">Cream (g)</label>
+    <input id="t-g" type="number" step="1" min="1" value="500">
+    <label for="t-m">Method</label>
+    <select id="t-m">
+      <option value="jar" selected>jar shake</option>
+      <option value="hand">hand mixer</option>
+      <option value="stand">stand mixer</option>
+      <option value="processor">food processor</option>
+    </select>
+    <button id="t-go">Time the churn</button>
+    <div class="out" id="t-out"></div>
+  </section>
+
+  <section class="card" id="wash">
+    <h2>Salt and wash</h2>
+    <p class="desc">The finished block becomes salt to weigh and rinse water to ready.</p>
+    <label for="w-b">Butter (g)</label>
+    <input id="w-b" type="number" step="1" min="1" value="225">
+    <label for="w-s">Style</label>
+    <select id="w-s">
+      <option value="salted" selected>salted</option>
+      <option value="unsalted">unsalted</option>
+    </select>
+    <button id="w-go">Finish the block</button>
+    <div class="out" id="w-out"></div>
+  </section>
+</main>
+<footer>
+  Built by the app factory. <a href="index.html">About</a> &middot; <a href="https://github.com/iLanis-agent/buttermath">Source</a>
+</footer>
+<script src="engine.js"></script>
+<script>
+(function () {
+  'use strict';
+  var M = window.ButterMath;
+  function $(id){ return document.getElementById(id); }
+  function num(id){ return parseFloat($(id).value); }
+  function show(el, html){ el.classList.remove('err'); el.innerHTML = html; }
+  function fail(el, msg){ el.classList.add('err'); el.textContent = msg; }
+
+  $('c-go').addEventListener('click', function () {
+    var out = $('c-out');
+    try {
+      var r = M.creamToButter(num('c-g'));
+      show(out, '<span class="big">' + r.butter_g + ' g</span> butter' +
+        '<br>' + r.buttermilk_g + ' g buttermilk left over' +
+        '<br><span class="band">' + r.verdict + '</span>');
+    } catch (e) { fail(out, e.message); }
+  });
+
+  $('t-go').addEventListener('click', function () {
+    var out = $('t-out');
+    try {
+      var r = M.churnTime(num('t-g'), $('t-m').value);
+      show(out, '<span class="big">' + r.minutes + ' min</span> of churning' +
+        '<br><span class="band">' + r.verdict + '</span>');
+    } catch (e) { fail(out, e.message); }
+  });
+
+  $('w-go').addEventListener('click', function () {
+    var out = $('w-out');
+    try {
+      var r = M.saltAndWash(num('w-b'), $('w-s').value);
+      show(out, '<span class="big">' + r.salt_g + ' g</span> salt' +
+        '<br>' + r.rinses + ' rinse rounds, ' + r.rinse_water_ml + ' mL cold water in total' +
+        '<br><span class="band">' + r.verdict + '</span>');
+    } catch (e) { fail(out, e.message); }
+  });
+})();
+</script>
+</body>
+</html>
